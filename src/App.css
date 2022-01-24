@@ -1,38 +1,268 @@
 .App {
   text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+  background-color: #1F1F1F;
+  height: auto;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ************************ HEADER ************************ */
+header {
+    background-color: #121212;
+    height: 60px;
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 50px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.logo{
+    background-color: #E2B616;
+    font-weight: 900;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 32px;
+    width: 150px;
+    border-radius: 5px;
+    margin-right: 50px;
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: row;
+}
+
+.dropdown-header-option {
+    font-weight: bold;
+    font-size: 14px;
+    border: 0;
+    border-radius: 5px 0 0 5px;
+    height: 30px;
+    width: auto;
+    text-align: center;
+    cursor: pointer;
+}
+
+.search-area {
+    border: 0;
+    margin: 0 1px 0 1px;
+    height: 30px;
+    width: 500px;
+    text-indent:5px;
+}
+
+.magnifier {
+    background-color: white;
+    height: 30px;
+    border-radius: 0 5px 5px 0;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.magnifier:hover {
+    background-color: rgba(255, 255, 255, 0.932);
+
+}
+
+.search-area::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    font-size: 14px;
+}
+
+/* ************************  ************************ */
+.first-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titles-list{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 70vw;
+    height: auto;
+    cursor: pointer;
+}
+
+.titles-card {
+    color: white;
+    margin-bottom: 20px;
+    border: solid 1px rgb(66, 66, 66);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 80px;
+    padding: 10px;
+}
+
+.card-name, .card-details {
+    text-align: left;
+}
+
+.card-details {
+    color: rgb(114, 114, 114);
+}
+
+.titles-card:hover {
+    background-color: rgb(44, 44, 44);
+}
+
+.poster {
+    height: 60px;
+}
+
+/* ************************ PAGINATION ************************ */
+.pagination-bar {
+    display: flex;
+    flex-direction: row;
+    margin: 10px 0 10px 0;
+}
+
+.page-button {
+    color: white;
+    margin-right: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
+    width: 35px;
+    border: solid 1px rgb(66, 66, 66);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.page-button:hover {
+    background-color: rgb(66, 66, 66);
+}
+
+.selected-page-button {
+    background-color: rgb(66, 66, 66);
+}
+
+/* ************************ TITLE SELECTED ************************ */
+.title-selected {
+    color: white;
+    width: 70vw;
+    height: auto;
+    margin: auto;
+    /* display: flex; */
+    display: none;
+    flex-direction: column;
+}
+
+.return-btn {
+    background-color: #E2B616;
+    border: 0;
+    width: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.return-btn:hover {
+    background-color: rgba(224, 183, 37, 0.877);
+}
+
+.top-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: solid 30px;
+    border-color: #121212;
+    padding: 0 50px 0 50px;
+}
+
+.basic-info {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    align-items: flex-start;
+}
+
+.selected-title {
+    text-align: left;
+}
+
+.rating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+.more-info {
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    margin-top: 20px
+}
+
+.poster {
+    height: 100%;
+}
+
+.adicional-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+    margin-left: 10px;
+}
+
+
+/* ************************ MEDIA QUERIES ************************ */
+@media (max-width: 900px) {
+
+    header {
+        height: auto;
+        padding: 10px;
+        flex-direction: column;
+    }
+
+    .logo{
+        margin: 0 0 10px 0;
+    }
+
+    .search-area {
+        border: 0;
+        border-radius: 0px 5px 5px 0;
+        margin-left: 1px;
+        height: 30px;
+        width: 70vw;
+    }
   }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+@media (max-width: 800px) {
+    .top-info{
+        flex-direction: column;
+        padding: 0;
+    }
 
-.App-link {
-  color: #61dafb;
-}
+    .more-info {
+        flex-direction: column;
+        align-items: center;
+    }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+    .adicional-info {
+        margin: 15px 0 15px 0;
+    }
   }
-  to {
-    transform: rotate(360deg);
-  }
+
+@media (max-width: 550px) {
+
+    .card-name {
+        font-size: 3.6vw;
+    }
+
+    .card-details {
+        font-size: 3.6vw;
+    }
+
 }

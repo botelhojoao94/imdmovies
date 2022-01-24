@@ -1,25 +1,30 @@
-import logo from './logo.svg';
+import { createStore, combineReducers } from 'redux'
+import { Provider } from 'react-redux'
+import currentPageReducer from './reducers/currentPageReducer'
+import totalPagesReducer from './reducers/totalPagesReducer'
+import titleReducer from './reducers/titleReducer'
+import Header from './componets/Header';
+import TitlesList from './componets/TitlesList';
+import TitleSelected from './componets/TitleSelected';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+    console.log(process.env.REACT_APP_API_HOST)
+
+    const allReducers = combineReducers({currentPageReducer, totalPagesReducer, titleReducer})
+    const store = createStore(allReducers)
+
+    return (
+        <Provider store={store}>
+            <div className="App">
+                <Header />
+                <TitlesList />
+                <TitleSelected />
+            </div>
+        </Provider>
+    );
 }
 
 export default App;
