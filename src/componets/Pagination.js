@@ -22,6 +22,7 @@ export default function Pagination(props) {
             pagesArray.push(i)
         }
         setPageInterval(pagesArray)
+        paginate()
     }, [totalPages])
 
     const backwardBtn = useRef()

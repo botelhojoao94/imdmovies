@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import Axios from 'axios'
 import Titles from './Titles'
 import Pagination from './Pagination';
-import Axios from 'axios'
 
 export default function TitlesList() {
 
@@ -11,12 +11,8 @@ export default function TitlesList() {
     const dispatch = useDispatch()
     const currentPage = useSelector((state) => { return state.currentPageReducer })
     const currentTitle = useSelector((state) => { return state.titleReducer })
-    const totalPages = useSelector((state) => { return state.totalPagesReducer })
-
-
 
     useEffect(() => {
-
         if (Object.keys(currentTitle).length != 0) {
             var options = {
                 method: 'GET',
@@ -37,7 +33,6 @@ export default function TitlesList() {
                 console.error(error);
             });
         }
-
     }, [currentTitle, currentPage])
 
     return (
@@ -49,7 +44,7 @@ export default function TitlesList() {
                     )
                 })}
             </div>
-            <Pagination />
+            {currentTitle.title? <Pagination /> : null}
         </div>
     )
 }

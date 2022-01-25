@@ -14,7 +14,7 @@ export default function Header() {
         sessionStorage.setItem("TypeValue", e.target.value)
     }
 
-    function handleCatchTitle() {
+    function handleCatchSearch() {
         if (sessionStorage.getItem("SearchTitleValue") != '') {
             const firstPage = document.getElementsByClassName("first-page")
             const titleSelected = document.getElementsByClassName("title-selected")
@@ -31,17 +31,13 @@ export default function Header() {
                 IMDMovies
             </div>
             <div className="search-bar">
-
                 <select className="dropdown-header-option" onChange={(e) => { handleTypeValue(e) }}>
                     <option value="">All</option>
                     <option value="movie">Movies</option>
                     <option value="series">Series</option>
                 </select>
-
                 <input className="search-area" type="text" placeholder="Search Title" onChange={(e) => { handleSearchValue(e) }}></input>
-
-                <img className="magnifier" src={Magnifier} alt="magnifier" onClick={() => { handleCatchTitle() }}></img>
-
+                <img className="magnifier" src={Magnifier} alt="magnifier" onClick={() => { handleCatchSearch() }}></img>
             </div>
         </header>
     )

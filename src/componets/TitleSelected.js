@@ -1,13 +1,14 @@
 
 import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
+import Axios from 'axios'
 import StarImg from '../assets/images/star.svg'
 import ReturnImg from '../assets/images/return.svg'
-import Axios from 'axios'
 
 export default function () {
 
     const [title, setTitle] = useState([])
+
     const currentTitle = useSelector((state) => { return state.titleReducer })
 
     useEffect(() => {
@@ -16,7 +17,6 @@ export default function () {
     }, [])
 
     useEffect(() => {
-
         if (currentTitle.id) {
             var options = {
                 method: 'GET',
@@ -33,9 +33,7 @@ export default function () {
             }).catch(function (error) {
                 console.error(error);
             });
-
         }
-
     }, [currentTitle]);
 
     function handleReturn() {
@@ -45,10 +43,12 @@ export default function () {
         titleSelected[0].style.display = "none"
     }
 
-
     return (
-        <div className="title-selected">
-            <img className="return-btn" src={ReturnImg} alt="return" onClick={() => {handleReturn()}}></img>
+        <div className="title-selected" onClick={() => { handleReturn() }}>
+            <div className="return-btn">
+                <img className="return-img" src={ReturnImg} alt="return" onClick={() => { handleReturn() }}></img>
+                Return
+            </div>
             <div className="top-info">
                 <div className="basic-info">
                     <h1 className="selected-title">{title.Title}</h1>

@@ -11,9 +11,7 @@ import './App.css';
 
 function App() {
 
-    console.log(process.env.REACT_APP_API_HOST)
-
-    const allReducers = combineReducers({currentPageReducer, totalPagesReducer, titleReducer})
+    const allReducers = combineReducers({ currentPageReducer, totalPagesReducer, titleReducer })
     const store = createStore(allReducers)
 
     return (

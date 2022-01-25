@@ -71,7 +71,7 @@ header {
     font-size: 14px;
 }
 
-/* ************************  ************************ */
+/* ************************ TITLES LIST AND TITLES ************************ */
 .first-page{
     display: flex;
     flex-direction: column;
@@ -84,7 +84,6 @@ header {
     margin: auto;
     width: 70vw;
     height: auto;
-    cursor: pointer;
 }
 
 .titles-card {
@@ -99,16 +98,17 @@ header {
     padding: 10px;
 }
 
+.titles-card:hover {
+    background-color: rgb(44, 44, 44);
+}
+
 .card-name, .card-details {
+    cursor: pointer;
     text-align: left;
 }
 
 .card-details {
     color: rgb(114, 114, 114);
-}
-
-.titles-card:hover {
-    background-color: rgb(44, 44, 44);
 }
 
 .poster {
@@ -156,11 +156,19 @@ header {
 
 .return-btn {
     background-color: #E2B616;
+    color: black;
+    font-weight: bold;
     border: 0;
-    width: 30px;
+    width: 100px;
     padding: 5px;
     border-radius: 5px;
     cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.return-img {
+    width: 30px;
+    padding: 4px;
 }
 
 .return-btn:hover {
@@ -193,9 +201,6 @@ header {
     align-items: center;
     justify-content: center;
 }
-
-
-
 
 .more-info {
     display: flex;
